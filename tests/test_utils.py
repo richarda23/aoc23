@@ -4,12 +4,13 @@ from utils import *
 class TestUtils:
 
     def test_ints_from_line(self):
-        line="hgjg 234ghgj456ghjj987"
+        line="hgjg 234ghgj456gh-567jj987"
         ints = ints_in_line(line)
-        assert 3 == len(ints)
+        assert 4 == len(ints)
         assert 234 == ints[0]
         assert 456 == ints[1]
-        assert 987 == ints[2]
+        assert -567 == ints[2]
+        assert 987 == ints[3]
 
     def _eval(self, x):
         return  type (x) == str
