@@ -6,7 +6,7 @@ import math, sys
 def file2lines(file_name):
     with open (file_name, 'r') as f:
         lines = f.readlines()
-    return lines
+    return [l.strip() for l in lines]
 
 ints = r'\-?\d+'
 

@@ -47,13 +47,14 @@ def process_line(seq: List[int], verbose=False)->int:
 
 class Test9:
 
-    def test_line1(self):
+    def test_pt2(self):
         seq = [ints_in_line (l) for l in  (get_matrix("dec9data.txt"))]
+        ### just reverse the order of the input array
         result = sum([ process_line(s[::-1]) for s in seq])
         print(result)
 
 
-    def test_result(self):
+    def test_pt1(self):
         seq = [ints_in_line (l) for l in  (get_matrix("dec9data.txt"))]
         result = sum([ process_line(s) for s in seq])
 
