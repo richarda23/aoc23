@@ -8,7 +8,7 @@ def file2lines(file_name):
         lines = f.readlines()
     return lines
 
-ints = r'\-?\d+'
+ints = r'\d+'
 
 def ints_in_line(line: str):
     return [int(i) for i in re.findall(ints, line)]
