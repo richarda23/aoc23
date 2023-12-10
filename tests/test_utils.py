@@ -97,10 +97,3 @@ class TestUtils:
         r1 = MyRange(18,12)
         assert 12 == r1.st
         assert 18 == r1.end
-
-
-
-
-
-
-
