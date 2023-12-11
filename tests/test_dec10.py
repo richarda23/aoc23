@@ -70,6 +70,7 @@ class Test10:
         current = (96,102,'-')## setting off in any direction
         paths = next(lines, start, start, current,v=True)
         print(len(paths))
+        ## the answer is (this // 2) + 1
 
     def test_testresult(self):
         lines = get_matrix("tests/dec10testdata.txt")
