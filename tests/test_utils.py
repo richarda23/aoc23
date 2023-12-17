@@ -104,3 +104,31 @@ class TestUtils:
         a2[0] = 'hola'
         assert 'hello' ==a1[0]
         assert 'hola' ==a2[0]
+
+    def test_splitlist(self):
+        input = 'ab*ddd**gg'
+        list = [c for c in input]
+        subs = split_list(list, splitWord='*')
+        assert ['a','b'] == subs[0]
+        assert ['*'] == subs[1]
+        assert ['d','d','d'] == subs[2]
+        assert ['*'] == subs[3]
+        assert ['*'] == subs[4]
+        assert ['g','g'] == subs[5]
+        assert input == join_list(subs)
+
+
+    def test_splitlist2_no_matches(self):
+        list = [c for c in 'abddd']
+        subs = split_list(list, splitWord='*')
+        assert ['a','b','d','d','d'] == subs[0]
+        assert 'abddd' == join_list(subs)
+
+    def test_delimiter_at_end(self):
+        list = [c for c in 'abddd**']
+        subs = split_list(list, splitWord='*')
+        print(subs)
+        assert ['a','b','d','d','d'] == subs[0]
+        assert ['*'] == subs[1]
+        assert ['*'] == subs[2]
+        assert 'abddd**' == join_list(subs)

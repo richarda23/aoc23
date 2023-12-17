@@ -26,6 +26,28 @@ def transpose(grid: List[str]):
 
 def copy_grid(grid : List[str]):
    return [r for r in grid]
+
+def split_list(list_of_strings: List[str], splitWord:str) -> List[List[str]]:
+    last_split = -1
+    rc = []
+    for i, s in enumerate (list_of_strings):
+        if s == splitWord:
+            split = list_of_strings[last_split+1:i]
+            if len(split) > 0:
+                rc.append(list_of_strings[last_split+1:i])
+            rc.append([s])
+            last_split = i
+    last_split = list_of_strings[last_split+1:i+1]
+    if len(last_split) > 0:
+        rc.append(last_split)
+    print(rc)
+    return rc
+
+def join_list(sublists:List[List[str]]):
+    return ''.join([''.join(s) for s in sublists])
+
+
+
     
 
 
