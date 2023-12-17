@@ -13,6 +13,22 @@ ints = r'\-?\d+'
 def ints_in_line(line: str):
     return [int(i) for i in re.findall(ints, line)]
 
+def get_columns(grid: List[str] )->List[List[str]]:
+    col_count = len(grid[0])
+    cols = []
+    for i in  range(col_count):
+        col = [row [i] for row in grid]
+        cols.append(col)
+    return cols
+
+def transpose(grid: List[str]):
+    return list(zip(*grid))
+
+def copy_grid(grid : List[str]):
+   return [r for r in grid]
+    
+
+
 class MyRange:
 
     @staticmethod

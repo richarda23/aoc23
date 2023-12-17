@@ -97,3 +97,10 @@ class TestUtils:
         r1 = MyRange(18,12)
         assert 12 == r1.st
         assert 18 == r1.end
+
+    def test_copy(self):
+        a1 = [ 'hello', 'goodbye']
+        a2 = copy_grid(a1)
+        a2[0] = 'hola'
+        assert 'hello' ==a1[0]
+        assert 'hola' ==a2[0]
