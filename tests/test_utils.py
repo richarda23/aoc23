@@ -132,3 +132,24 @@ class TestUtils:
         assert ['*'] == subs[1]
         assert ['*'] == subs[2]
         assert 'abddd**' == join_list(subs)
+
+    def test_transpose(self):
+        data = [
+            ('a', 'b', 'c', 'd'),
+            ('a1', 'b1', 'c1', 'd1'),
+            ('a2', 'b2', 'c2', 'd2'),
+        ]
+
+        l1 = rotate_grid(copy_grid(data), 4)
+        assert l1 == data
+        l2 = rotate_grid(copy_grid(data), 1)
+        assert l2[0] == ('d', 'd1', 'd2')
+        l3 = rotate_grid(copy_grid(data), 2)
+        assert l3[0] == ('d2', 'c2', 'b2', 'a2')
+        l4 = rotate_grid(copy_grid(data), 3)
+        assert l4[0] == ('a2', 'a1', 'a')
+
+        cw = rotate_grid(copy_grid(data), -1)
+        assert cw == l4
+
+

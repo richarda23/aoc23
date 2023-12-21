@@ -24,6 +24,19 @@ def get_columns(grid: List[str] )->List[List[str]]:
 def transpose(grid: List[str]):
     return list(zip(*grid))
 
+def rotate_grid(grid: List[List[str]], turns: int = 1):
+    """
+    Rotates grid anticlockwise
+    """
+    if turns == 0:
+        return grid
+    if turns < 0:
+        turns = 4 + turns
+    for _ in range (0, turns):
+        grid = reversed(transpose(grid))
+    return list(grid)
+
+
 def copy_grid(grid : List[str]):
    return [r for r in grid]
 
@@ -40,15 +53,10 @@ def split_list(list_of_strings: List[str], splitWord:str) -> List[List[str]]:
     last_split = list_of_strings[last_split+1:i+1]
     if len(last_split) > 0:
         rc.append(last_split)
-    print(rc)
     return rc
 
 def join_list(sublists:List[List[str]]):
     return ''.join([''.join(s) for s in sublists])
-
-
-
-    
 
 
 class MyRange:
