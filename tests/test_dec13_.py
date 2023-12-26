@@ -100,7 +100,7 @@ def analyse_puzzle_pt2(puzzles: List[List[str]]):
 class Test14:
     
     def test_result(self):
-        lines = get_matrix("tests/dec14data.txt")
+        lines = get_matrix("dec14data.txt")
         puzzles = parse_puzzles(lines)
         print(analyse_puzzles(puzzles[5:6]))
         print(analyse_puzzle_pt2(puzzles))

@@ -1,5 +1,5 @@
 import pytest
-from utils import  file2lines, ints_in_line, MyRange, join_list, rotate_grid, split_list, transpose
+from utils import  file2lines, ints_in_line, MyRange, join_list, rotate_grid, split_list, transpose,print_grid
 from typing import List, Dict, Tuple
 import re
 import math
@@ -9,11 +9,13 @@ from collections import Counter
 def get_matrix(filename) -> List[str]:
     return file2lines(filename)
 
+
 def _tilt_sort(cell: str):
     if cell == 'O':
         return 1
     else:
         return 10
+
 
 def tilt(line: List[str])->List[str]:
     """
@@ -22,6 +24,7 @@ def tilt(line: List[str])->List[str]:
     sublines = split_list(line, '#')
     sorted_sublines = [sorted(sub, key = _tilt_sort) for sub in sublines]
     return [c for c in join_list(sorted_sublines)]
+
 
 def tilt_grid(grid: List[List[str]])->List[List[str]]:
     """
@@ -46,8 +49,8 @@ def score_grid(grid: List[List[str]]):
         total += score(col)
     return total
 
-def print_grid(grid: List[List[str]]):
-    print ('\n'+'\n'.join(''.join(l) for l in grid))
+
+
 class Test14:
     
     def result(self):
